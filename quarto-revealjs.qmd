@@ -1,0 +1,125 @@
+---
+title: "quarto-revealjs"
+format: 
+  html:
+    toc: true
+    number-sections: true
+  pdf: default
+  revealjs: default
+editor: visual
+execute:
+  echo: false
+ 
+
+# title: "quarto-revealjs"
+# format: html
+# editor: visual
+# execute: 
+#   echo: false
+bibliography: references.bib
+---
+
+## Data
+
+Using the `penguins` dataset from [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html) package. [@gorman2014]
+
+```{r}
+#| label:  load-package
+#| message: false
+
+library(tidyverse)
+library(ggthemes)
+library(palmerpenguins)
+library(gt)
+
+data("penguins")
+
+```
+
+```{r}
+glimpse(penguins)
+```
+
+## Species
+
+The figure below is a scatter plot of species of penguins.
+
+<u>To add *cross-reference*</u>\
+1. Use word *fig* at the beginning of the label.\
+- *fig-bill-dims-species*
+
+2.  **For a caption**, use #\| fig-cap: A scatterplot of ....\
+
+-   *Do not* use a pipe after "fig-cap:"
+
+```{r}
+#| eval: false
+#| label: fig-bill-dims-species
+#| fig-width: 5
+#| fig-asp: 0.618
+#  Add alternative text for the figure. This fig-alt text will show up in "inspect" function.  
+#| fig-alt: |
+#| A scatterplot of penguins' bill depth and length, colored by 
+#| species of penguins.  There is a relatively strong, linear association.
+#| fig-cap: |
+#|  A scatterplot of penguins' bill depth and length, colored by species of penguins. 
+
+ggplot(
+  penguins,
+  aes(
+    x = bill_length_mm, y = bill_depth_mm,
+    color = species, shape = species
+  )
+) +
+  geom_point() +
+  theme_minimal() +
+  scale_color_colorblind() +
+  labs(x = "Bill length (mm)", y = "Bill depth (mm)")
+```
+
+### Captioning and cross-referencing in Quarto
+
+```{r}
+#| label: fig-claudes_figure
+#| warning: false
+#| fig-width: 5
+#| fig-asp: 0.618
+#| fig-alt: "A scatterplot of penguins bill depth and length, colored by species of penguins. There is a relatively strong, linear association."
+#| fig-cap: "A scatterplot of penguins bill depth and length, colored by species of penguins."
+
+ggplot(
+  penguins,
+  aes(
+    x = bill_length_mm, y = bill_depth_mm,
+    color = species, shape = species
+  )
+) +
+  geom_point() +
+  theme_minimal() +
+  scale_color_colorblind() +
+  labs(x = "Bill length (mm)", y = "Bill depth (mm)")
+```
+
+Make sure that the **cross-referencing** is set up correctly. To cross-reference the figure, you can use the `@fig-label syntax` in your Quarto document. For example, you can reference the figure like this:
+
+As shown in @fig-claudes_figure, there is a clear relationship between bill depth and length among different species of penguins.
+
+**To summarize**: - Use the `#| fig-cap: "Your caption text"` syntax in the code chunk options to set the figure caption. - Use the `#| fig-alt: "Your alternative text"` syntax to provide alternative text for accessibility purposes. - Use the `@fig-label` syntax in your Quarto document to cross-reference the figure, replacing `label` with the actual label you assigned to the figure code chunk.
+
+These features in Quarto allow you to create well-documented and accessible documents that are easy to navigate and reference.
+
+If you have any more questions or need further assistance with Quarto, feel free to ask. I'm here to help you learn and make the most out of Quarto's features!
+
+## Penguins
+
+@tbl-penguins-top10 shows the first 10 penguins from the dataset.
+
+```{r}
+#| label: tbl-penguins-top10
+#| tbl-cap: "First 10 penguins"
+
+penguins |>
+  slice_head(n = 10) |>
+  select(species, bill_length_mm, bill_depth_mm) |>
+  gt()
+```

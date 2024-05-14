@@ -1,0 +1,105 @@
+---
+title: "Beautiful presentations"
+author: "Andrew Gard"
+format: 
+  revealjs:
+    footer: "Equitable equations: decision trees"
+    logo: gtlslogo.png
+    transition: fade
+#    title-slide-attributes: 
+#      data-background-image: "images/background.jpg"
+#    transition: slide
+#    theme: dark
+#
+# Go to a new line ctl+space = drop down menu of options   
+---
+
+## [Equitable Equations](https://www.youtube.com/watch?v=01KifhHDkFk)
+
+Materials for this video [Click here](https://github.com/equitable-equations/youtube/tree/main/Beautiful%20presentations)
+
+```{r}
+#| label: setup
+#| echo: true
+
+library(tidyverse)
+library(gt)
+library(readxl)
+theme_set(theme_minimal())
+
+dt_example <- read_excel("data/dt_example.xlsx")
+```
+
+##  {background-image="images/background.jpg"}
+
+In this vid, we'll manually construct a decision tree classifier using the following data set.
+
+::: columns
+::: {.column width="\"20%"}
+```{r}
+dt_example |>
+  gt()
+
+```
+:::
+
+::: {.column .column width="\"80%"}
+```{r}
+#| fig-height: 6
+#  #| fig-width: 12
+
+ggplot(dt_example, aes(x, y, color = color)) +
+  geom_point(size = 7,
+             show.legend = FALSE) +
+  labs(x = NULL,
+       y = NULL) +
+  theme(axis.text = element_text(size = 15,
+                                  face = "bold")) + 
+  scale_color_manual(values = c("blue", "red"))
+```
+:::
+:::
+
+## Decision Trees
+
+A **decision tree classifier** applies a divde-and-conuer algorithm to the training set, recursively splitting it into pieces that are as homogeneous as possible.
+
+##  {background-image="images/background.jpg"}
+
+::: {.callout-tip title="Decision trees"}
+
+**Example of a callout**
+
+A **decision tree classifier** applies a divde-and-conuer algorithm to the training set, recursively splitting it into pieces that are as homogeneous as possible. 
+
+
+:::
+
+## Pauses
+
+-   Inserting pauses displays the first part of a slide, then we advance to the next part of the slide.
+
+-   We do this with 3 dots, with spaces in between.
+
+. . . 
+
+
+![Tree plots](images/tree_plot.png){fig-align="center" width=100%}
+
+
+
+## Here's how I made that plot
+
+```{r}
+#| echo: true
+#| fig-align: center
+#| code-line-numbers: "|2-3|4-5|6-10"
+ggplot(dt_example, aes(x, y, color = color)) +
+  geom_point(size = 7,
+             show.legend = FALSE) +
+  labs(x = NULL,
+       y = NULL) +
+  theme(axis.text = element_text(size = 15,
+                                 face = "bold")) +
+  scale_color_manual(values = c("blue", "red"))
+```
