@@ -14,20 +14,21 @@ execute:
 #   echo: false
 bibliography: references.bib
 ---
-# Introduction 
 
-## Using Quarto *revealjs* slide-deck  
+# Introduction
+
+## Using Quarto *revealjs* slide-deck
 
 -   [See 11:00](https://www.youtube.com/watch?v=_f3latmOhew&t=980s) to modify format for PDF, html and *revealjs* slide decks.
 
--   [See 13:00](https://www.youtube.com/watch?v=_f3latmOhew&t=980s) to see use of *predefined classes* in the Visual editor, like css to modify *attributes*.  You might, for example, wish to make text a bit smaller.  
+-   [See 13:00](https://www.youtube.com/watch?v=_f3latmOhew&t=980s) to see use of *predefined classes* in the Visual editor, like css to modify *attributes*. You might, for example, wish to make text a bit smaller.
 
--  [See 14:00](https://www.youtube.com/watch?v=_f3latmOhew&t=980s) to modify *execute: echo: true* to show code.  
+-   [See 14:00](https://www.youtube.com/watch?v=_f3latmOhew&t=980s) to modify *execute: echo: true* to show code.
 
-- Modify *Species* code chunk to:  
-  - #| output-location: column-fragment  
-  - #| output-location: slide
+-   Modify *Species* code chunk to:
 
+    -   #\| output-location: column-fragment\
+    -   #\| output-location: slide
 
 ## Data
 
@@ -113,17 +114,19 @@ ggplot(
   labs(x = "Bill length (mm)", y = "Bill depth (mm)")
 ```
 
-## Cross-referencing 
+## Cross-referencing
+
 Make sure that the **cross-referencing** is set up correctly. To cross-reference the figure, you can use the `@fig-label syntax` in your Quarto document. For example, you can reference the figure like this:
 
 As shown in @fig-claudes_figure, there is a clear relationship between bill depth and length among different species of penguins.
 
 ## **To summarize**:
 
-* Use the `#| fig-cap: "Your caption text"` syntax in the code chunk options to set the figure caption. - Use the `#| fig-alt: "Your alternative text"` syntax to provide alternative text for accessibility purposes. 
-* Use the `@fig-label` syntax in your Quarto document to cross-reference the figure, replacing `label` with the actual label you assigned to the figure code chunk.
+-   Use the `#| fig-cap: "Your caption text"` syntax in the code chunk options to set the figure caption. - Use the `#| fig-alt: "Your alternative text"` syntax to provide alternative text for accessibility purposes.
 
-* These features in Quarto allow you to create well-documented and accessible documents that are easy to navigate and reference.
+-   Use the `@fig-label` syntax in your Quarto document to cross-reference the figure, replacing `label` with the actual label you assigned to the figure code chunk.
+
+-   These features in Quarto allow you to create well-documented and accessible documents that are easy to navigate and reference.
 
 If you have any more questions or need further assistance with Quarto, feel free to ask. I'm here to help you learn and make the most out of Quarto's features!
 
@@ -141,7 +144,6 @@ penguins |>
   gt()
 ```
 
+# Analysis
 
-# Analysis 
-
-# References  
+# References
