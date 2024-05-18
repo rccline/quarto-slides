@@ -118,7 +118,12 @@ ggplot(
 
 Make sure that the **cross-referencing** is set up correctly. To cross-reference the figure, you can use the `@fig-label syntax` in your Quarto document. For example, you can reference the figure like this:
 
-As shown in @fig-claudes_figure, there is a clear relationship between bill depth and length among different species of penguins.
+As shown in @fig-claudes_figure, there is a clear relationship between bill depth and length among different species of penguins.  
+
+## Reference for this presentation: 
+
+Hello, Quarto: A World of Possibilities for Reproducible Publishing  [@dukecenterforcomputationalthinkingHelloQuartoWorld2023]. 
+
 
 ## **To summarize**:
 
