@@ -45,8 +45,14 @@ dt_example |>
 
 ::: {.column .column width="\"80%"}
 ```{r}
+#| label: Best_practice_Lable_chunks 
 #| fig-height: 6
-#  #| fig-width: 12
+#| fig-asp: 0.6128  # Aspect ratio
+#| fig-cap: Give your plot a caption with '#| fig-cap:' 
+#| 
+#  #| fig-width: 12  
+
+### Use @Best_practice_Lable_chuns for cross-reference
 
 ggplot(dt_example, aes(x, y, color = color)) +
   geom_point(size = 7,
@@ -67,12 +73,9 @@ A **decision tree classifier** applies a divde-and-conuer algorithm to the train
 ##  {background-image="images/background.jpg"}
 
 ::: {.callout-tip title="Decision trees"}
-
 **Example of a callout**
 
-A **decision tree classifier** applies a divde-and-conuer algorithm to the training set, recursively splitting it into pieces that are as homogeneous as possible. 
-
-
+A **decision tree classifier** applies a divde-and-conuer algorithm to the training set, recursively splitting it into pieces that are as homogeneous as possible.
 :::
 
 ## Pauses
@@ -81,12 +84,9 @@ A **decision tree classifier** applies a divde-and-conuer algorithm to the train
 
 -   We do this with 3 dots, with spaces in between.
 
-. . . 
+. . .
 
-
-![Tree plots](images/tree_plot.png){fig-align="center" width=100%}
-
-
+![Tree plots](images/tree_plot.png){fig-align="center" width="100%"}
 
 ## Here's how I made that plot
 
